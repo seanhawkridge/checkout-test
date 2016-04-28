@@ -7,4 +7,8 @@ class Checkout
     @total = 0
   end
 
+  def scan(item)
+    @total += item.price
+  end
+
 end
