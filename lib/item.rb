@@ -1,11 +1,11 @@
 
 class Item
 
-  attr_reader :code, :name, :price
+  attr_reader :product_code, :name, :price
 
-  def initialize(code, name, price)
-    @code = code
-    @name = name
+  def initialize(product_code, name, price)
+    @product_code = product_code.to_sym
+    @name = name.to_sym
     @price = price
   end
 

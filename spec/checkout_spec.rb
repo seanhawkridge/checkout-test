@@ -5,7 +5,7 @@ describe Checkout do
   let(:subtotal_klass) {double :subtotal_klass}
   let(:promotional_rules) {double :promotional_rules}
   let(:subtotal) {double :subtotal}
-  let(:item_one) {double :item_one, code: 001, name: "Lavender Heart", price: 9.25}
+  let(:item_one) {double :item_one, product_code: 001, name: "Lavender Heart", price: "9.25"}
 
   subject(:checkout) {described_class.new(promotional_rules)}
 
