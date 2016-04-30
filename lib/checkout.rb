@@ -17,14 +17,14 @@ class Checkout
 
   def total
     apply_promotions
-    @subtotal.balance
+    format_total(@subtotal.balance)
   end
 
   private
 
   def apply_promotions
-    amount = @promotional_rules.calculate_discount(@items, @subtotal.balance)
-    @subtotal.deduct_from_balance(amount)
+    updated_total = @promotional_rules.apply_promotions(@items, @subtotal.balance)
+    @subtotal.apply_promotions(updated_total)
   end
 
   def add_to_subtotal(item)
@@ -33,6 +33,14 @@ class Checkout
 
   def add_to_items(item)
     @items << item
+  end
+
+  def format_total(amount)
+    "£#{float_total(amount)}"
+  end
+
+  def float_total(amount)
+    "%.2f" % amount
   end
 
 end

@@ -22,7 +22,7 @@ describe 'User flow' do
 
     it 'adds the value of the item to the total' do
       checkout.scan(item_one)
-      expect(checkout.total).to eq 9.25
+      expect(checkout.total).to eq "£9.25"
     end
 
   end
@@ -32,7 +32,7 @@ describe 'User flow' do
     it 'adds the value of multiple items to the total' do
       checkout.scan(item_one)
       checkout.scan(item_two)
-      expect(checkout.total).to eq 54.25
+      expect(checkout.total).to eq "£54.25"
     end
 
   end
@@ -43,15 +43,38 @@ describe 'User flow' do
       checkout.scan(item_two)
       checkout.scan(item_two)
       expect(subtotal.balance).to eq 90
-      expect(checkout.total).to eq 81
+      expect(checkout.total).to eq "£81.00"
     end
 
     it 'correctly applies a discount for multiple lavender hearts' do
       checkout.scan(item_one)
       checkout.scan(item_one)
       expect(subtotal.balance).to eq 18.50
-      expect(checkout.total).to eq 17
+      expect(checkout.total).to eq "£17.00"
     end
+
+    it 'correctly applies a discount for a basket of items' do
+      checkout.scan(item_one)
+      checkout.scan(item_two)
+      checkout.scan(item_three)
+      expect(checkout.total).to eq "£66.78"
+    end
+
+    it 'correctly applies a discount for a basket of items' do
+      checkout.scan(item_one)
+      checkout.scan(item_one)
+      checkout.scan(item_three)
+      expect(checkout.total).to eq "£36.95"
+    end
+
+    it 'correctly applies a discount for a basket of items' do
+      checkout.scan(item_one)
+      checkout.scan(item_two)
+      checkout.scan(item_one)
+      checkout.scan(item_three)
+      expect(checkout.total).to eq "£73.76"
+    end
+
 
   end
 

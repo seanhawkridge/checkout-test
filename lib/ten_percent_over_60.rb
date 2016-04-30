@@ -1,14 +1,14 @@
 
 class TenPercentOver60
 
-  def self.reduction(items, total)
-    calculate_reduction(items, total)
+  def self.apply_promotion(items, total)
+    calculate_promotion(items, total)
   end
 
   private
 
-  def self.calculate_reduction(items, total)
-    total > 60 ? total *= 0.1 : 0
+  def self.calculate_promotion(items, total)
+    total > 60 ? total *= 0.9 : total
   end
 
 end

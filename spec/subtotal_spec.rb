@@ -17,10 +17,10 @@ describe Subtotal do
     end
   end
 
-  describe '#deduct_from_balance' do
-    it 'deducts a given amount from the balance' do
-      subtotal.deduct_from_balance(10)
-      expect(subtotal.balance).to eq (-10)
+  describe '#apply_promotions' do
+    it 'applies the promotions to the balance' do
+      subtotal.apply_promotions(20)
+      expect(subtotal.balance).to eq (20)
     end
   end
 

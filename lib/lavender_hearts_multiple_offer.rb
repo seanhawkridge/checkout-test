@@ -1,19 +1,18 @@
 
 class LavenderHeartsMultiple
 
-  def self.reduction(items, total)
-    calculate_reduction(items, total)
+  def self.apply_promotion(items, total)
+    calculate_promotion(items, total)
   end
 
   private
 
-  def self.calculate_reduction(items, total)
+  def self.calculate_promotion(items, total)
     lavender_hearts = count_lavender_hearts(items)
-    amount = 0
     if lavender_hearts.length >= 2
-      lavender_hearts.each { |lavender_heart| amount += 0.75 }
+      lavender_hearts.each { total -= 0.75 }
     end
-    amount
+    total
   end
 
   def self.count_lavender_hearts(items)

@@ -11,9 +11,9 @@ describe Checkout do
 
   before do
     allow(subtotal).to receive(:add_to_balance)
-    allow(subtotal).to receive(:deduct_from_balance)
+    allow(subtotal).to receive(:apply_promotions)
     allow(subtotal).to receive(:balance).and_return(10)
-    allow(promotional_rules).to receive(:calculate_discount)
+    allow(promotional_rules).to receive(:apply_promotions)
     checkout.instance_variable_set(:@subtotal, subtotal)
   end
 
@@ -42,12 +42,12 @@ describe Checkout do
   describe '#total' do
 
     it 'applies the promotions' do
-      expect(promotional_rules).to receive(:calculate_discount)
+      expect(promotional_rules).to receive(:apply_promotions)
       checkout.total
     end
 
     it 'returns the total' do
-      expect(checkout.total).to eq 10
+      expect(checkout.total).to eq "£10.00"
     end
 
   end

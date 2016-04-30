@@ -4,10 +4,12 @@ describe TenPercentOver60 do
 
   subject(:offer) {described_class}
 
-  describe '#reduction' do
+  describe '#apply_promotion' do
+
     it 'calculates the correct reduction based on a given amount' do
-      expect(offer.reduction([], 100)).to eq 10
+      expect(offer.apply_promotion([], 100)).to eq 90
     end
+    
   end
 
 end

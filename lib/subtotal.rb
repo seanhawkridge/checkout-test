@@ -4,15 +4,15 @@ class Subtotal
   attr_reader :balance
 
   def initialize
-    @balance = 0
+    @balance = 0.0
   end
 
   def add_to_balance(amount)
     @balance += amount
   end
 
-  def deduct_from_balance(amount)
-    @balance -= amount
+  def apply_promotions(total)
+    @balance = total
   end
 
 end

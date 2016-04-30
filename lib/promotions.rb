@@ -3,20 +3,19 @@ class Promotions
 
   def initialize(*args)
     @promotions = args
-    @discounts = []
   end
 
-  def calculate_discount(items, total)
-    calculate_discounts(items, total)
-    @discounts.inject(:+)
+  def apply_promotions(items, total)
+    calculate_promotions(items, total)
   end
 
   private
 
-  def calculate_discounts(items, total)
+  def calculate_promotions(items, total)
     @promotions.each do |promotion|
-      @discounts << promotion.reduction(items, total)
+      total = promotion.apply_promotion(items, total)
     end
+    total
   end
 
 end
