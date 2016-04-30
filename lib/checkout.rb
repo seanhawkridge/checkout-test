@@ -1,14 +1,30 @@
 
 class Checkout
 
-  attr_reader :total
+  attr_reader :items
 
-  def initialize
-    @total = 0
+  def initialize(subtotal_klass)
+    @subtotal = subtotal_klass.new
+    @items = []
   end
 
   def scan(item)
-    @total += item.price
+    add_to_subtotal(item)
+    add_to_items(item)
+  end
+
+  def total
+    @subtotal.balance
+  end
+
+  private
+
+  def add_to_subtotal(item)
+    @subtotal.add_to_balance(item.price)
+  end
+
+  def add_to_items(item)
+    @items << item
   end
 
 end
