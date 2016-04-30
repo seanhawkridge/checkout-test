@@ -10,9 +10,10 @@ describe Checkout do
   subject(:checkout) {described_class.new(promotional_rules)}
 
   before do
-    allow(subtotal_klass).to receive(:new).and_return subtotal
-    allow(subtotal).to receive(:new)
     allow(subtotal).to receive(:add_to_balance)
+    allow(subtotal).to receive(:deduct_from_balance)
+    allow(subtotal).to receive(:balance).and_return(10)
+    allow(promotional_rules).to receive(:calculate_discount)
     checkout.instance_variable_set(:@subtotal, subtotal)
   end
 
@@ -40,9 +41,13 @@ describe Checkout do
 
   describe '#total' do
 
-    it 'calls #balance in subtotal object' do
-      expect(subtotal).to receive(:balance)
+    it 'applies the promotions' do
+      expect(promotional_rules).to receive(:calculate_discount)
       checkout.total
+    end
+
+    it 'returns the total' do
+      expect(checkout.total).to eq 10
     end
 
   end

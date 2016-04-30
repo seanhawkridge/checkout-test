@@ -1,13 +1,13 @@
 
 class LavenderHeartsMultiple
 
-  def reduction(items, total)
+  def self.reduction(items, total)
     calculate_reduction(items, total)
   end
 
   private
 
-  def calculate_reduction(items, total)
+  def self.calculate_reduction(items, total)
     lavender_hearts = count_lavender_hearts(items)
     amount = 0
     if lavender_hearts.length >= 2
@@ -16,7 +16,7 @@ class LavenderHeartsMultiple
     amount
   end
 
-  def count_lavender_hearts(items)
+  def self.count_lavender_hearts(items)
     items.select{ |item| item.name == :"Lavender Heart" }
   end
 

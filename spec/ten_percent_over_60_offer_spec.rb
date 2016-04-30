@@ -2,7 +2,7 @@ require 'ten_percent_over_60.rb'
 
 describe TenPercentOver60 do
 
-  subject(:offer) {described_class.new}
+  subject(:offer) {described_class}
 
   describe '#reduction' do
     it 'calculates the correct reduction based on a given amount' do

@@ -16,10 +16,16 @@ class Checkout
   end
 
   def total
+    apply_promotions
     @subtotal.balance
   end
 
   private
+
+  def apply_promotions
+    amount = @promotional_rules.calculate_discount(@items, @subtotal.balance)
+    @subtotal.deduct_from_balance(amount)
+  end
 
   def add_to_subtotal(item)
     @subtotal.add_to_balance(item.price)

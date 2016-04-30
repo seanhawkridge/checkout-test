@@ -2,7 +2,7 @@ require 'lavender_hearts_multiple_offer.rb'
 
 describe LavenderHeartsMultiple do
 
-  subject(:offer) {described_class.new}
+  subject(:offer) {described_class}
 
   let(:item_one) {double :item_one, code: 001, name: :"Lavender Heart", price: 9.25}
   let(:item_two) {double :item_two, code: 002, name: :"Kids T-Shirt", price: 19.95}
