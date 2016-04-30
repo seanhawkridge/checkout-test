@@ -1,10 +1,12 @@
+require './lib/subtotal.rb'
 
 class Checkout
 
   attr_reader :items
 
-  def initialize(subtotal_klass)
-    @subtotal = subtotal_klass.new
+  def initialize(promotional_rules)
+    @subtotal = Subtotal.new
+    @promotional_rules = promotional_rules
     @items = []
   end
 
