@@ -1,19 +1,14 @@
 
-The Task
----------
+## The Task
 
 
-My Approach
-------------
+## My Approach
 
 
-Installation
--------------
+## Installation
 
 
-Running the program
---------------------
+## Running the program
 
 
-Ideas/To Do
-------------
+## Ideas/To Do
