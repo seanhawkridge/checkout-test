@@ -5,6 +5,7 @@ describe Checkout do
   let(:subtotal_klass) {double :subtotal_klass}
   let(:promotional_rules) {double :promotional_rules}
   let(:subtotal) {double :subtotal}
+  let(:priceformatter) {double :priceformatter}
   let(:item_one) {double :item_one, product_code: 001, name: "Lavender Heart", price: "9.25"}
 
   subject(:checkout) {described_class.new(promotional_rules)}
@@ -12,8 +13,10 @@ describe Checkout do
   before do
     allow(subtotal).to receive(:add_to_balance)
     allow(subtotal).to receive(:apply_promotions)
-    allow(subtotal).to receive(:balance).and_return(10)
+    allow(subtotal).to receive(:balance).and_return(9.25)
+    allow(priceformatter).to receive(:result).and_return("£9.25")
     allow(promotional_rules).to receive(:apply_promotions)
+    allow(item_one).to receive(:is_a?).with(Item).and_return(true)
     checkout.instance_variable_set(:@subtotal, subtotal)
   end
 
@@ -27,7 +30,7 @@ describe Checkout do
 
   describe '#scan' do
 
-    it 'calls #add_to_balance in subtotal object' do
+    it 'sends #add_to_balance to the subtotal object' do
       expect(subtotal).to receive(:add_to_balance)
       checkout.scan(item_one)
     end
@@ -37,17 +40,27 @@ describe Checkout do
       expect(checkout.items).to include item_one
     end
 
+    it 'adds multiple scanned items to the items array' do
+      checkout.scan(item_one)
+      checkout.scan(item_one)
+      expect(checkout.items).to include item_one, item_one
+    end
+
+    it 'raises an error if a scanned object is not of the type Item' do
+      expect{checkout.scan(:banana)}.to raise_error "Not an item"
+    end
+
   end
 
   describe '#total' do
 
-    it 'applies the promotions' do
+    it 'sends #apply_promotions to the promotions object' do
       expect(promotional_rules).to receive(:apply_promotions)
       checkout.total
     end
 
-    it 'returns the total' do
-      expect(checkout.total).to eq "£10.00"
+    it 'returns the formatted total' do
+      expect(checkout.total).to eq "£9.25"
     end
 
   end

@@ -1,4 +1,5 @@
 require './lib/subtotal.rb'
+require './lib/price_formatter.rb'
 
 class Checkout
 
@@ -6,18 +7,20 @@ class Checkout
 
   def initialize(promotional_rules)
     @subtotal = Subtotal.new
+    @priceformatter = PriceFormatter
     @promotional_rules = promotional_rules
     @items = []
   end
 
   def scan(item)
+    raise "Not an item" unless item.is_a?(Item)
     add_to_subtotal(item)
     add_to_items(item)
   end
 
   def total
     apply_promotions
-    format_total(@subtotal.balance)
+    @priceformatter.result(@subtotal.balance)
   end
 
   private
@@ -33,14 +36,6 @@ class Checkout
 
   def add_to_items(item)
     @items << item
-  end
-
-  def format_total(amount)
-    "£#{float_total(amount)}"
-  end
-
-  def float_total(amount)
-    "%.2f" % amount
   end
 
 end
