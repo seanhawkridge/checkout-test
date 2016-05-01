@@ -6,7 +6,7 @@ describe TenPercentOver60 do
 
   describe '#apply_promotion' do
 
-    it 'calculates the correct reduction based on a given amount' do
+    it 'calculates the correct 10% reduction based on a given amount' do
       expect(offer.apply_promotion([], 100)).to eq 90
     end
 

@@ -47,7 +47,7 @@ describe Checkout do
     end
 
     it 'raises an error if a scanned object is not of the type Item' do
-      expect{checkout.scan(:banana)}.to raise_error "Not an item"
+      expect{checkout.scan(String.new)}.to raise_error "Not an item"
     end
 
   end

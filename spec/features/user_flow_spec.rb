@@ -27,6 +27,10 @@ describe 'User flow' do
       expect(checkout.total).to eq "£9.25"
     end
 
+    it 'raises an error if the scanned object is not an item' do
+      expect{checkout.scan(String.new)}.to raise_error "Not an item"
+    end
+
   end
 
   describe "scanning multiple items" do

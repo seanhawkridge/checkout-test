@@ -7,11 +7,11 @@ class Subtotal
     @balance = 0.0
   end
 
-  def add_to_balance(amount)
+  def add_to_balance amount
     @balance += amount
   end
 
-  def apply_promotions(total)
+  def apply_promotions total
     @balance = total
   end
 
