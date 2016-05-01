@@ -16,7 +16,7 @@ class LavenderHeartsMultiple
   end
 
   def self.count_lavender_hearts items
-    items.select{ |item| item.name == :"Lavender Heart" }
+    items.select { |item| item.name == :"Lavender Heart" }
   end
 
 end
