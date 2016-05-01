@@ -4,6 +4,7 @@ describe Promotions do
 
   let(:offer_one) {double :offer_one}
   let(:offer_two) {double :offer_two}
+  let(:not_an_offer) {double :not_an_offer}
   let(:subtotal) {double :subtotal}
   let(:items) {double :items}
 
@@ -16,9 +17,17 @@ describe Promotions do
   end
 
   describe '#apply_promotions' do
+
     it 'applies the promotions to the subtotal' do
       expect(promotions.apply_promotions([], 100)).to eq 80
     end
+
+    it "raises an error is the promotion is not valid (doesn't respond to apply_promotion)" do
+      broken_promotions = Promotions.new(not_an_offer)
+      expect{broken_promotions.apply_promotions([], 100)}
+        .to raise_error "#{not_an_offer.class} is not a valid promotion"
+    end
+
   end
 
 end

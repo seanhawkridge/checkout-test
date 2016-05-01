@@ -7,7 +7,7 @@ describe PriceFormatter do
   describe '#result' do
 
     it 'presents the properly formatted amount' do
-      expect(priceformatter.result(12.123)).to eq "£12.12"
+      expect(priceformatter.format(12.123)).to eq "£12.12"
     end
 
   end

@@ -1,7 +1,7 @@
 
 class PriceFormatter
 
-  def self.result amount
+  def self.format amount
     format_amount amount
   end
 

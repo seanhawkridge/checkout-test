@@ -20,7 +20,7 @@ class Checkout
 
   def total
     apply_promotions
-    @priceformatter.result @subtotal.balance
+    @priceformatter.format @subtotal.balance
   end
 
   private
