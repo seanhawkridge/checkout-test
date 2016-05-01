@@ -1,15 +1,17 @@
 require 'item'
 require 'checkout'
 require 'subtotal'
+require 'price_formatter'
 require 'promotions'
-require 'lavender_hearts_multiple_offer'
-require 'ten_percent_over_60'
+require 'promotions/lavender_hearts_multiple_offer'
+require 'promotions/ten_percent_over_60'
 
 describe 'User flow' do
 
   let(:promotional_rules) {Promotions.new(LavenderHeartsMultiple, TenPercentOver60)}
   let(:checkout) {Checkout.new(promotional_rules)}
   let(:subtotal) {Subtotal.new}
+  let(:priceformatter) {PriceFormatter}
   let(:item_one) {Item.new("001", "Lavender Heart", 9.25)}
   let(:item_two) {Item.new("002", "Personalised Cufflinks", 45.00)}
   let(:item_three) {Item.new("003", "Kids T-shirt", 19.95)}
@@ -74,7 +76,6 @@ describe 'User flow' do
       checkout.scan(item_three)
       expect(checkout.total).to eq "£73.76"
     end
-
 
   end
 

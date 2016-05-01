@@ -1,4 +1,4 @@
-require 'ten_percent_over_60.rb'
+require 'promotions/ten_percent_over_60.rb'
 
 describe TenPercentOver60 do
 
@@ -9,7 +9,7 @@ describe TenPercentOver60 do
     it 'calculates the correct reduction based on a given amount' do
       expect(offer.apply_promotion([], 100)).to eq 90
     end
-    
+
   end
 
 end

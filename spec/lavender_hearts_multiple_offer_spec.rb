@@ -1,4 +1,4 @@
-require 'lavender_hearts_multiple_offer.rb'
+require 'promotions/lavender_hearts_multiple_offer.rb'
 
 describe LavenderHeartsMultiple do
 
