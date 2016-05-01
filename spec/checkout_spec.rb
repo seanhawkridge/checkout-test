@@ -12,7 +12,7 @@ describe Checkout do
 
   before do
     allow(subtotal).to receive(:add_to_balance)
-    allow(subtotal).to receive(:apply_promotions)
+    allow(subtotal).to receive(:update)
     allow(subtotal).to receive(:balance).and_return(9.25)
     allow(priceformatter).to receive(:result).and_return("£9.25")
     allow(promotional_rules).to receive(:apply_promotions)

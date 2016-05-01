@@ -17,9 +17,9 @@ describe Subtotal do
     end
   end
 
-  describe '#apply_promotions' do
+  describe '#update' do
     it 'applies the promotions to the balance' do
-      subtotal.apply_promotions(20)
+      subtotal.update(20)
       expect(subtotal.balance).to eq (20)
     end
   end

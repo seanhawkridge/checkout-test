@@ -11,7 +11,7 @@ class Subtotal
     @balance += amount
   end
 
-  def apply_promotions total
+  def update total
     @balance = total
   end
 
