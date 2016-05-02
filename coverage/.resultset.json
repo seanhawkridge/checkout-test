@@ -256,7 +256,9 @@
         null,
         null
       ],
-      "/Users/seanhawkridge/Dropbox/Dev/online_marketplace_test/lib/promotions.rb": [
+      "/Users/seanhawkridge/Dropbox/Dev/online_marketplace_test/lib/promotional_rules.rb": [
+        1,
+        1,
         null,
         1,
         null,
@@ -282,6 +284,28 @@
         1,
         9,
         null,
+        null,
+        1,
+        8,
+        null,
+        null,
+        null
+      ],
+      "/Users/seanhawkridge/Dropbox/Dev/online_marketplace_test/lib/promotions/ten_percent_over_60.rb": [
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        10,
+        null,
+        null,
+        1,
+        8,
+        null,
+        null,
+        1,
         null,
         1,
         8,
@@ -315,28 +339,6 @@
         null,
         1,
         28,
-        null,
-        null,
-        null
-      ],
-      "/Users/seanhawkridge/Dropbox/Dev/online_marketplace_test/lib/promotions/ten_percent_over_60.rb": [
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        10,
-        null,
-        null,
-        1,
-        8,
-        null,
-        null,
-        1,
-        null,
-        1,
-        8,
         null,
         null,
         null
@@ -410,7 +412,7 @@
         null,
         null
       ],
-      "/Users/seanhawkridge/Dropbox/Dev/online_marketplace_test/spec/promotions_spec.rb": [
+      "/Users/seanhawkridge/Dropbox/Dev/online_marketplace_test/spec/promotional_rules_spec.rb": [
         1,
         null,
         1,
@@ -500,6 +502,6 @@
         null
       ]
     },
-    "timestamp": 1462171504
+    "timestamp": 1462173584
   }
 }

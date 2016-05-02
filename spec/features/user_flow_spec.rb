@@ -2,13 +2,13 @@ require 'item'
 require 'checkout'
 require 'subtotal'
 require 'price_formatter'
-require 'promotions'
+require 'promotional_rules'
 require 'promotions/lavender_hearts_multiple_offer'
 require 'promotions/ten_percent_over_60'
 
 describe 'User flow' do
 
-  let(:promotional_rules) {Promotions.new(LavenderHeartsMultiple.new, TenPercentOver60.new)}
+  let(:promotional_rules) {PromotionalRules.new(LavenderHeartsMultiple.new, TenPercentOver60.new)}
   let(:checkout) {Checkout.new(promotional_rules)}
   let(:subtotal) {Subtotal.new}
   let(:priceformatter) {PriceFormatter}

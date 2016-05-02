@@ -1,5 +1,7 @@
+require_relative 'promotions/ten_percent_over_60.rb'
+require_relative 'promotions/lavender_hearts_multiple_offer.rb'
 
-class Promotions
+class PromotionalRules
 
   def initialize *args
     @promotions = args

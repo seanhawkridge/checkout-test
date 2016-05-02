@@ -1,5 +1,5 @@
-require './lib/subtotal.rb'
-require './lib/price_formatter.rb'
+require_relative 'subtotal.rb'
+require_relative 'price_formatter.rb'
 
 class Checkout
 

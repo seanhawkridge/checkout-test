@@ -2,7 +2,7 @@ require './lib/item.rb'
 require './lib/checkout.rb'
 require './lib/subtotal.rb'
 require './lib/price_formatter.rb'
-require './lib/promotions.rb'
+require './lib/promotional_rules.rb'
 require './lib/promotions/lavender_hearts_multiple_offer.rb'
 require './lib/promotions/ten_percent_over_60.rb'
 
@@ -12,7 +12,7 @@ namespace :examples do
 
   ten_percent_offer = TenPercentOver60.new
   lavender_hearts_offer = LavenderHeartsMultiple.new
-  pr = Promotions.new(lavender_hearts_offer, ten_percent_offer)
+  pr = PromotionalRules.new(lavender_hearts_offer, ten_percent_offer)
   lavender_heart = Item.new("001", "Lavender Heart", 9.25)
   cufflinks = Item.new("002", "Personalised Cufflinks", 45.00)
   t_shirt = Item.new("003", "Kids T-shirt", 19.95)
