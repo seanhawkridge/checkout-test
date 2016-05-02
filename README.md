@@ -19,9 +19,9 @@ Finally, I refactored to ensure that promotions are applied in the correct order
 ## Assumptions
 
 * Items can be scanned in any order
+* Promotions can be included in any order
 * Promotions are changeable
 * New items/promotions can be added
-
 
 ## Installation
 
