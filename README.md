@@ -40,46 +40,32 @@ You can also interact with the program from the command line in IRB/PRY:
 
 ````
 require './lib/item.rb'
- => true
 
 require './lib/checkout.rb'
- => true
 
 require './lib/promotional_rules.rb'
- => true
 
 lavender_hearts_offer = LavenderHeartsMultiple.new
- => #<LavenderHeartsMultiple:0x007fbf4c17e388 @promotion_type=:item_discount>
 
 ten_percent_offer = TenPercentOver60.new
- => #<TenPercentOver60:0x007fbf4c117098 @promotion_type=:total_discount>
 
 promotional_rules = PromotionalRules.new(lavender_hearts_offer, ten_percent_offer)
- => #<PromotionalRules:0x007fbf4ab1ce28 @promotions=[#<LavenderHeartsMultiple:0x007fbf4c17e388 @promotion_type=:item_discount>, #<TenPercentOver60:0x007fbf4c117098 @promotion_type=:total_discount>]>
 
 co = Checkout.new(promotional_rules)
- => #<Checkout:0x007fbf4ab0cac8 @subtotal=#<Subtotal:0x007fbf4ab0caa0 @balance=0.0>, @priceformatter=PriceFormatter, @promotional_rules=#<PromotionalRules:0x007fbf4ab1ce28 @promotions=[#<LavenderHeartsMultiple:0x007fbf4c17e388 @promotion_type=:item_discount>, #<TenPercentOver60:0x007fbf4c117098 @promotion_type=:total_discount>]>, @items=[]>
 
 lavender_heart = Item.new("001", "Lavender Heart", 9.25)
- => #<Item:0x007fbf4aaf51e8 @product_code=:"001", @name=:"Lavender Heart", @price=9.25>
 
 cufflinks = Item.new("002", "Personalised Cufflinks", 45.00)
- => #<Item:0x007fbf4aadc828 @product_code=:"002", @name=:"Personalised Cufflinks", @price=45.0>
 
 t_shirt = Item.new("003", "Kids T-shirt", 19.95)
- => #<Item:0x007fbf4aaa44c8 @product_code=:"003", @name=:"Kids T-shirt", @price=19.95>
 
 co.scan(lavender_heart)
- => [#<Item:0x007fbf4aaf51e8 @product_code=:"001", @name=:"Lavender Heart", @price=9.25>]
 
 co.scan(t_shirt)
- => [#<Item:0x007fbf4aaf51e8 @product_code=:"001", @name=:"Lavender Heart", @price=9.25>, #<Item:0x007fbf4aaa44c8 @product_code=:"003", @name=:"Kids T-shirt", @price=19.95>]
 
 co.scan(lavender_heart)
- => [#<Item:0x007fbf4aaf51e8 @product_code=:"001", @name=:"Lavender Heart", @price=9.25>, #<Item:0x007fbf4aaa44c8 @product_code=:"003", @name=:"Kids T-shirt", @price=19.95>, #<Item:0x007fbf4aaf51e8 @product_code=:"001", @name=:"Lavender Heart", @price=9.25>]
 
 co.scan(cufflinks)
- => [#<Item:0x007fbf4aaf51e8 @product_code=:"001", @name=:"Lavender Heart", @price=9.25>, #<Item:0x007fbf4aaa44c8 @product_code=:"003", @name=:"Kids T-shirt", @price=19.95>, #<Item:0x007fbf4aaf51e8 @product_code=:"001", @name=:"Lavender Heart", @price=9.25>, #<Item:0x007fbf4aadc828 @product_code=:"002", @name=:"Personalised Cufflinks", @price=45.0>]
 
 co.total
  => "£73.76"
