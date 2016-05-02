@@ -26,8 +26,10 @@ class Checkout
   private
 
   def apply_promotions
+    return if promotions_applied?
     updated_total = @promotional_rules.apply_promotions @items, @subtotal.balance
     @subtotal.update updated_total
+    @promotions_applied = true
   end
 
   def add_to_subtotal item
@@ -36,6 +38,10 @@ class Checkout
 
   def add_to_items item
     @items << item
+  end
+
+  def promotions_applied?
+    @promotions_applied == true
   end
 
 end

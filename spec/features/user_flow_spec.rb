@@ -59,28 +59,43 @@ describe 'User flow' do
       expect(checkout.total).to eq "£17.00"
     end
 
-    it 'correctly applies a discount for a basket of items' do
-      checkout.scan(item_one)
-      checkout.scan(item_two)
-      checkout.scan(item_three)
-      expect(checkout.total).to eq "£66.78"
-    end
-
-    it 'correctly applies a discount for a basket of items' do
-      checkout.scan(item_one)
-      checkout.scan(item_one)
-      checkout.scan(item_three)
-      expect(checkout.total).to eq "£36.95"
-    end
-
-    it 'correctly applies a discount for a basket of items' do
+    it 'will only deduct promotions once' do
       checkout.scan(item_one)
       checkout.scan(item_two)
       checkout.scan(item_one)
       checkout.scan(item_three)
       expect(checkout.total).to eq "£73.76"
+      expect(checkout.total).to eq "£73.76"
+    end
+
+    context 'running examples' do
+
+      it 'correctly applies a discount for a basket of items' do
+        checkout.scan(item_one)
+        checkout.scan(item_two)
+        checkout.scan(item_three)
+        expect(checkout.total).to eq "£66.78"
+      end
+
+      it 'correctly applies a discount for a basket of items' do
+        checkout.scan(item_one)
+        checkout.scan(item_one)
+        checkout.scan(item_three)
+        expect(checkout.total).to eq "£36.95"
+      end
+
+      it 'correctly applies a discount for a basket of items' do
+        checkout.scan(item_one)
+        checkout.scan(item_two)
+        checkout.scan(item_one)
+        checkout.scan(item_three)
+        expect(checkout.total).to eq "£73.76"
+      end
+
     end
 
   end
+
+
 
 end

@@ -59,6 +59,12 @@ describe Checkout do
       checkout.total
     end
 
+    it 'only attempts to process the discounts once' do
+      expect(promotional_rules).to receive(:apply_promotions).once
+      checkout.total
+      checkout.total
+    end
+
     it 'returns the formatted total' do
       expect(checkout.total).to eq "£9.25"
     end
