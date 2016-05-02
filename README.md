@@ -75,5 +75,6 @@ co.total
 ## Ideas/To Do
 
 * I chose to create separate objects for each promotion, so that new promotions that make reductions in different ways could be processed. Having said this, if all promotions end up performing one of two tasks - either making a reduction to a particular item or making a reduction to the overall total, then these could be refactored into two template-style objects.
+* Create a receipt object that presents a formatted list of items/prices/discounts
 * Some error-handling to make sure only promotion-type objects are passed in when instantiating the PromotionalRules class.
 * Refactor Checkout#items into a separate Basket object.
