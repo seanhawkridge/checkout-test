@@ -22,6 +22,7 @@ Finally, I refactored to ensure that promotions are applied in the correct order
 * Promotions can be included in any order
 * Promotions are changeable
 * New items/promotions can be added
+* Promotions should only be able to be processed once at checkout
 
 ## Installation
 
