@@ -8,8 +8,8 @@ class PromotionalRules
   end
 
   def apply_promotions items, subtotal
-    subtotal = calculate_item_discounts items, subtotal
-    subtotal = calculate_total_discounts items, subtotal
+    subtotal_after_item_discounts = calculate_item_discounts items, subtotal
+    subtotal_after_total_discounts = calculate_total_discounts items, subtotal_after_item_discounts
   end
 
   private
