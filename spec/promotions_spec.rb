@@ -2,8 +2,8 @@ require 'promotions.rb'
 
 describe Promotions do
 
-  let(:offer_one) {double :offer_one}
-  let(:offer_two) {double :offer_two}
+  let(:offer_one) {double :offer_one, promotion_type: :item_discount}
+  let(:offer_two) {double :offer_two, promotion_type: :total_discount}
   let(:not_an_offer) {double :not_an_offer}
   let(:subtotal) {double :subtotal}
   let(:items) {double :items}

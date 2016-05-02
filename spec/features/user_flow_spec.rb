@@ -8,7 +8,7 @@ require 'promotions/ten_percent_over_60'
 
 describe 'User flow' do
 
-  let(:promotional_rules) {Promotions.new(LavenderHeartsMultiple, TenPercentOver60)}
+  let(:promotional_rules) {Promotions.new(LavenderHeartsMultiple.new, TenPercentOver60.new)}
   let(:checkout) {Checkout.new(promotional_rules)}
   let(:subtotal) {Subtotal.new}
   let(:priceformatter) {PriceFormatter}

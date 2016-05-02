@@ -10,7 +10,9 @@ namespace :examples do
 
   task :all => [:example_one, :example_two, :example_three]
 
-  pr = Promotions.new(LavenderHeartsMultiple, TenPercentOver60)
+  ten_percent_offer = TenPercentOver60.new
+  lavender_hearts_offer = LavenderHeartsMultiple.new
+  pr = Promotions.new(lavender_hearts_offer, ten_percent_offer)
   lavender_heart = Item.new("001", "Lavender Heart", 9.25)
   cufflinks = Item.new("002", "Personalised Cufflinks", 45.00)
   t_shirt = Item.new("003", "Kids T-shirt", 19.95)

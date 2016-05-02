@@ -1,21 +1,27 @@
 
 class LavenderHeartsMultiple
 
-  def self.apply_promotion items, total
-    calculate_promotion items, total
+  attr_reader :promotion_type
+
+  def initialize
+    @promotion_type = :item_discount
+  end
+
+  def apply_promotion items, subtotal
+    calculate_promotion items, subtotal
   end
 
   private
 
-  def self.calculate_promotion items, total
+  def calculate_promotion items, subtotal
     lavender_hearts = count_lavender_hearts items
     if lavender_hearts.length >= 2
-      lavender_hearts.each { total -= 0.75 }
+      lavender_hearts.each { subtotal -= 0.75 }
     end
-    total
+    subtotal
   end
 
-  def self.count_lavender_hearts items
+  def count_lavender_hearts items
     items.select { |item| item.name == :"Lavender Heart" }
   end
 

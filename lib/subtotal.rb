@@ -11,8 +11,8 @@ class Subtotal
     @balance += amount
   end
 
-  def update total
-    @balance = total
+  def update amount
+    @balance = amount
   end
 
 end

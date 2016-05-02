@@ -2,7 +2,15 @@ require 'promotions/ten_percent_over_60.rb'
 
 describe TenPercentOver60 do
 
-  subject(:offer) {described_class}
+  subject(:offer) {described_class.new}
+
+  describe '#initialize' do
+
+    it 'should initialize with the correct promotion type' do
+      expect(offer.promotion_type).to eq :total_discount
+    end
+
+  end
 
   describe '#apply_promotion' do
 

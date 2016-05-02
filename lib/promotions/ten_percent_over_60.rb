@@ -1,14 +1,20 @@
 
 class TenPercentOver60
 
-  def self.apply_promotion items, total
-    calculate_promotion items, total
+  attr_reader :promotion_type
+
+  def initialize
+    @promotion_type = :total_discount
+  end
+
+  def apply_promotion items, subtotal
+    calculate_promotion items, subtotal
   end
 
   private
 
-  def self.calculate_promotion items, total
-    total > 60 ? total *= 0.9 : total
+  def calculate_promotion items, subtotal
+    subtotal > 60 ? subtotal *= 0.9 : subtotal
   end
 
 end

@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-05-01T13:59:18+01:00">2016-05-01T13:59:18+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-05-02T07:45:04+01:00">2016-05-02T07:45:04+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.61
+         3.8
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>15</b> files in total.
-    <b>230</b> relevant lines. 
-    <span class="green"><b>230</b> lines covered</span> and
+    <b>247</b> relevant lines. 
+    <span class="green"><b>247</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -83,31 +83,31 @@
       <tr>
         <td class="strong"><a href="#35b714fe7e1e2eee5259048d67a1eb98fdf8433e" class="src_link" title="lib/promotions.rb">lib/promotions.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>22</td>
-        <td>11</td>
-        <td>11</td>
+        <td>31</td>
+        <td>16</td>
+        <td>16</td>
         <td>0</td>
-        <td>6.7</td>
+        <td>9.3</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#7ac048e52f96dd8ab9441ef8f17668f0c8948fa1" class="src_link" title="lib/promotions/lavender_hearts_multiple_offer.rb">lib/promotions/lavender_hearts_multiple_offer.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>22</td>
-        <td>11</td>
-        <td>11</td>
+        <td>28</td>
+        <td>14</td>
+        <td>14</td>
         <td>0</td>
-        <td>7.0</td>
+        <td>6.4</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#c930a55616f696a23b2506df108ffba59d57318a" class="src_link" title="lib/promotions/ten_percent_over_60.rb">lib/promotions/ten_percent_over_60.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>14</td>
-        <td>6</td>
-        <td>6</td>
+        <td>20</td>
+        <td>9</td>
+        <td>9</td>
         <td>0</td>
-        <td>3.3</td>
+        <td>3.6</td>
       </tr>
       
       <tr>
@@ -153,9 +153,9 @@
       <tr>
         <td class="strong"><a href="#7287b349e17baccc5a26c2eebc10392de652c550" class="src_link" title="spec/lavender_hearts_multiple_offer_spec.rb">spec/lavender_hearts_multiple_offer_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>17</td>
-        <td>9</td>
-        <td>9</td>
+        <td>25</td>
+        <td>12</td>
+        <td>12</td>
         <td>0</td>
         <td>1.4</td>
       </tr>
@@ -193,9 +193,9 @@
       <tr>
         <td class="strong"><a href="#7bfdfe37bcd385c459c6ad12597459055bec4a14" class="src_link" title="spec/ten_percent_over_60_offer_spec.rb">spec/ten_percent_over_60_offer_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>15</td>
-        <td>6</td>
-        <td>6</td>
+        <td>23</td>
+        <td>9</td>
+        <td>9</td>
         <td>0</td>
         <td>1.2</td>
       </tr>
@@ -701,8 +701,8 @@
     <h3>lib/promotions.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>11</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>16</b> relevant lines. 
+      <span class="green"><b>16</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -755,88 +755,142 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">  def apply_promotions items, total</code>
+          <code class="ruby">  def apply_promotions items, subtotal</code>
         </li>
       
         <li class="covered" data-hits="9" data-linenumber="9">
           <span class="hits">9</span>
           
-          <code class="ruby">    calculate_promotions items, total</code>
+          <code class="ruby">    subtotal = calculate_item_discounts items, subtotal</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="covered" data-hits="8" data-linenumber="10">
+          <span class="hits">8</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    subtotal = calculate_total_discounts items, subtotal</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
+        <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">  def calculate_promotions items, total</code>
-        </li>
-      
-        <li class="covered" data-hits="9" data-linenumber="15">
-          <span class="hits">9</span>
-          
-          <code class="ruby">    @promotions.each do |promotion|</code>
+          <code class="ruby">  def calculate_promotions items, subtotal, type</code>
         </li>
       
         <li class="covered" data-hits="17" data-linenumber="16">
           <span class="hits">17</span>
           
-          <code class="ruby">      raise &quot;#{promotion.class} is not a valid promotion&quot; unless promotion.respond_to?(:apply_promotion)</code>
+          <code class="ruby">    @promotions.each do |promotion|</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="17">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="33" data-linenumber="17">
+          <span class="hits">33</span>
           
-          <code class="ruby">      total = promotion.apply_promotion items, total</code>
+          <code class="ruby">      raise &quot;#{promotion.class} is not a valid promotion&quot; unless promotion.methods.include?(:apply_promotion)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="covered" data-hits="32" data-linenumber="18">
+          <span class="hits">32</span>
+          
+          <code class="ruby">      subtotal = promotion.apply_promotion items, subtotal if promotion.promotion_type == type</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="19">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="16" data-linenumber="20">
+          <span class="hits">16</span>
           
-          <code class="ruby">    total</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    subtotal</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def calculate_item_discounts items, subtotal</code>
+        </li>
+      
+        <li class="covered" data-hits="9" data-linenumber="24">
+          <span class="hits">9</span>
+          
+          <code class="ruby">    calculate_promotions items, subtotal, :item_discount</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def calculate_total_discounts items, subtotal</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="28">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    calculate_promotions items, subtotal, :total_discount</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="29">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
           
           
           <code class="ruby">end</code>
@@ -851,8 +905,8 @@
     <h3>lib/promotions/lavender_hearts_multiple_offer.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>11</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>14</b> relevant lines. 
+      <span class="green"><b>14</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -881,31 +935,31 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.apply_promotion items, total</code>
+          <code class="ruby">  attr_reader :promotion_type</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="5">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    calculate_promotion items, total</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="6">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">  private</code>
+          <code class="ruby">  def initialize</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="7">
+          <span class="hits">10</span>
+          
+          <code class="ruby">    @promotion_type = :item_discount</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -917,76 +971,112 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.calculate_promotion items, total</code>
+          <code class="ruby">  def apply_promotion items, subtotal</code>
         </li>
       
         <li class="covered" data-hits="8" data-linenumber="11">
           <span class="hits">8</span>
           
+          <code class="ruby">    calculate_promotion items, subtotal</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def calculate_promotion items, subtotal</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="17">
+          <span class="hits">8</span>
+          
           <code class="ruby">    lavender_hearts = count_lavender_hearts items</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="12">
+        <li class="covered" data-hits="8" data-linenumber="18">
           <span class="hits">8</span>
           
           <code class="ruby">    if lavender_hearts.length &gt;= 2</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="13">
+        <li class="covered" data-hits="12" data-linenumber="19">
           <span class="hits">12</span>
           
-          <code class="ruby">      lavender_hearts.each { total -= 0.75 }</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="15">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    total</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="18">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def self.count_lavender_hearts items</code>
-        </li>
-      
-        <li class="covered" data-hits="28" data-linenumber="19">
-          <span class="hits">28</span>
-          
-          <code class="ruby">    items.select { |item| item.name == :&quot;Lavender Heart&quot; }</code>
+          <code class="ruby">      lavender_hearts.each { subtotal -= 0.75 }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
           
           
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="21">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    subtotal</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def count_lavender_hearts items</code>
+        </li>
+      
+        <li class="covered" data-hits="28" data-linenumber="25">
+          <span class="hits">28</span>
+          
+          <code class="ruby">    items.select { |item| item.name == :&quot;Lavender Heart&quot; }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">end</code>
@@ -1001,8 +1091,8 @@
     <h3>lib/promotions/ten_percent_over_60.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>6</b> relevant lines. 
-      <span class="green"><b>6</b> lines covered</span> and
+      <b>9</b> relevant lines. 
+      <span class="green"><b>9</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1031,31 +1121,31 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.apply_promotion items, total</code>
+          <code class="ruby">  attr_reader :promotion_type</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="5">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    calculate_promotion items, total</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="6">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">  private</code>
+          <code class="ruby">  def initialize</code>
+        </li>
+      
+        <li class="covered" data-hits="10" data-linenumber="7">
+          <span class="hits">10</span>
+          
+          <code class="ruby">    @promotion_type = :total_discount</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -1067,13 +1157,13 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  def self.calculate_promotion items, total</code>
+          <code class="ruby">  def apply_promotion items, subtotal</code>
         </li>
       
         <li class="covered" data-hits="8" data-linenumber="11">
           <span class="hits">8</span>
           
-          <code class="ruby">    total &gt; 60 ? total *= 0.9 : total</code>
+          <code class="ruby">    calculate_promotion items, subtotal</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
@@ -1088,7 +1178,43 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def calculate_promotion items, subtotal</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="17">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    subtotal &gt; 60 ? subtotal *= 0.9 : subtotal</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">end</code>
@@ -1193,13 +1319,13 @@
         <li class="covered" data-hits="1" data-linenumber="14">
           <span class="hits">1</span>
           
-          <code class="ruby">  def update total</code>
+          <code class="ruby">  def update amount</code>
         </li>
       
         <li class="covered" data-hits="8" data-linenumber="15">
           <span class="hits">8</span>
           
-          <code class="ruby">    @balance = total</code>
+          <code class="ruby">    @balance = amount</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
@@ -1727,7 +1853,7 @@
         <li class="covered" data-hits="9" data-linenumber="11">
           <span class="hits">9</span>
           
-          <code class="ruby">  let(:promotional_rules) {Promotions.new(LavenderHeartsMultiple, TenPercentOver60)}</code>
+          <code class="ruby">  let(:promotional_rules) {Promotions.new(LavenderHeartsMultiple.new, TenPercentOver60.new)}</code>
         </li>
       
         <li class="covered" data-hits="9" data-linenumber="12">
@@ -2345,8 +2471,8 @@
     <h3>spec/lavender_hearts_multiple_offer_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>9</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
+      <b>12</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -2378,10 +2504,10 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="5">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="5">
+          <span class="hits">3</span>
           
-          <code class="ruby">  subject(:offer) {described_class}</code>
+          <code class="ruby">  subject(:offer) {described_class.new}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
@@ -2417,31 +2543,31 @@
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &#39;#apply_promotion&#39; do</code>
+          <code class="ruby">  describe &#39;#initialize&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="12">
           
-          <code class="ruby">    it &#39;calculates the correct reduction given items and total&#39; do</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(offer.apply_promotion(checkout.items, checkout.total)).to eq 36.95</code>
+          <code class="ruby">    it &#39;should initialize with the correct promotion type&#39; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      expect(offer.promotion_type).to eq :item_discount</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
@@ -2451,6 +2577,54 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;#apply_promotion&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &#39;calculates the correct reduction given items and total&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(offer.apply_promotion(checkout.items, checkout.total)).to eq 36.95</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">end</code>
@@ -2609,13 +2783,13 @@
         <li class="covered" data-hits="3" data-linenumber="5">
           <span class="hits">3</span>
           
-          <code class="ruby">  let(:offer_one) {double :offer_one}</code>
+          <code class="ruby">  let(:offer_one) {double :offer_one, promotion_type: :item_discount}</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="6">
           <span class="hits">3</span>
           
-          <code class="ruby">  let(:offer_two) {double :offer_two}</code>
+          <code class="ruby">  let(:offer_two) {double :offer_two, promotion_type: :total_discount}</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="7">
@@ -2969,8 +3143,8 @@
     <h3>spec/ten_percent_over_60_offer_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>6</b> relevant lines. 
-      <span class="green"><b>6</b> lines covered</span> and
+      <b>9</b> relevant lines. 
+      <span class="green"><b>9</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -3002,10 +3176,10 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="5">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="5">
+          <span class="hits">3</span>
           
-          <code class="ruby">  subject(:offer) {described_class}</code>
+          <code class="ruby">  subject(:offer) {described_class.new}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
@@ -3017,7 +3191,7 @@
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">  describe &#39;#apply_promotion&#39; do</code>
+          <code class="ruby">  describe &#39;#initialize&#39; do</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
@@ -3029,13 +3203,13 @@
         <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &#39;calculates the correct 10% reduction based on a given amount&#39; do</code>
+          <code class="ruby">    it &#39;should initialize with the correct promotion type&#39; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(offer.apply_promotion([], 100)).to eq 90</code>
+          <code class="ruby">      expect(offer.promotion_type).to eq :total_discount</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
@@ -3062,7 +3236,55 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;#apply_promotion&#39; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &#39;calculates the correct 10% reduction based on a given amount&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(offer.apply_promotion([], 100)).to eq 90</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby">end</code>
