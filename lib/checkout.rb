@@ -20,7 +20,7 @@ class Checkout
 
   def total
     apply_promotions unless promotions_applied?
-    @priceformatter.format @subtotal.balance
+    print_total
   end
 
   private
@@ -41,6 +41,10 @@ class Checkout
 
   def promotions_applied?
     @promotions_applied == true
+  end
+
+  def print_total
+    @priceformatter.format @subtotal.balance
   end
 
 end
