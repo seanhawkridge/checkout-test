@@ -96,6 +96,4 @@ describe 'User flow' do
 
   end
 
-
-
 end

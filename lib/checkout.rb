@@ -19,14 +19,13 @@ class Checkout
   end
 
   def total
-    apply_promotions
+    apply_promotions unless promotions_applied?
     @priceformatter.format @subtotal.balance
   end
 
   private
 
   def apply_promotions
-    return if promotions_applied?
     updated_total = @promotional_rules.apply_promotions @items, @subtotal.balance
     @subtotal.update updated_total
     @promotions_applied = true
