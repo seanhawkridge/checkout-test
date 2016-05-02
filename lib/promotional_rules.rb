@@ -3,8 +3,8 @@ require_relative 'promotions/lavender_hearts_multiple_offer.rb'
 
 class PromotionalRules
 
-  def initialize *args
-    @promotions = args
+  def initialize *promotions
+    @promotions = promotions
   end
 
   def apply_promotions items, subtotal
