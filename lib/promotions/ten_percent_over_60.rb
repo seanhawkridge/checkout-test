@@ -4,7 +4,7 @@ class TenPercentOver60
   attr_reader :promotion_type
 
   def initialize
-    @promotion_type = :total_discount
+    @promotion_type = :percentage_discount
   end
 
   def apply_promotion items, subtotal

@@ -7,7 +7,7 @@ describe TenPercentOver60 do
   describe '#initialize' do
 
     it 'should initialize with the correct promotion type' do
-      expect(offer.promotion_type).to eq :total_discount
+      expect(offer.promotion_type).to eq :percentage_discount
     end
 
   end

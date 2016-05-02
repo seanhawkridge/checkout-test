@@ -8,8 +8,8 @@ class PromotionalRules
   end
 
   def apply_promotions items, subtotal
-    subtotal_after_item_discounts = calculate_item_discounts items, subtotal
-    subtotal_after_total_discounts = calculate_total_discounts items, subtotal_after_item_discounts
+    item_discount_subtotal = calculate_promotions items, subtotal, :item_discount
+    percentage_discount_subtotal = calculate_promotions items, item_discount_subtotal, :percentage_discount
   end
 
   private
@@ -20,14 +20,6 @@ class PromotionalRules
       subtotal = promotion.apply_promotion items, subtotal if promotion.promotion_type == type
     end
     subtotal
-  end
-
-  def calculate_item_discounts items, subtotal
-    calculate_promotions items, subtotal, :item_discount
-  end
-
-  def calculate_total_discounts items, subtotal
-    calculate_promotions items, subtotal, :total_discount
   end
 
 end

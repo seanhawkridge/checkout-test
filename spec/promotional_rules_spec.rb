@@ -3,7 +3,7 @@ require 'promotional_rules'
 describe PromotionalRules do
 
   let(:offer_one) {double :offer_one, promotion_type: :item_discount}
-  let(:offer_two) {double :offer_two, promotion_type: :total_discount}
+  let(:offer_two) {double :offer_two, promotion_type: :percentage_discount}
   let(:not_an_offer) {double :not_an_offer}
   let(:subtotal) {double :subtotal}
   let(:items) {double :items}

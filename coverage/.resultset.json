@@ -309,14 +309,6 @@
         18,
         null,
         null,
-        1,
-        10,
-        null,
-        null,
-        1,
-        9,
-        null,
-        null,
         null
       ],
       "/Users/seanhawkridge/Dropbox/Dev/online_marketplace_test/lib/promotions/ten_percent_over_60.rb": [
@@ -530,6 +522,6 @@
         null
       ]
     },
-    "timestamp": 1462184445
+    "timestamp": 1462188369
   }
 }
