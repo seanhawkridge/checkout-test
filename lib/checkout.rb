@@ -5,7 +5,7 @@ class Checkout
 
   attr_reader :items
 
-  def initialize promotional_rules
+  def initialize promotional_rules = nil
     @subtotal = Subtotal.new
     @priceformatter = PriceFormatter
     @promotional_rules = promotional_rules
@@ -19,16 +19,16 @@ class Checkout
   end
 
   def total
-    apply_promotions unless promotions_applied?
+    apply_promotions if has_promotions? unless promotions_applied?
     print_total
   end
 
   private
 
   def apply_promotions
-    updated_total = @promotional_rules.apply_promotions @items, @subtotal.balance
-    @subtotal.update updated_total
-    @promotions_applied = true
+      updated_total = @promotional_rules.apply_promotions @items, @subtotal.balance
+      @subtotal.update updated_total
+      @promotions_applied = true
   end
 
   def add_to_subtotal item
@@ -37,6 +37,10 @@ class Checkout
 
   def add_to_items item
     @items << item
+  end
+
+  def has_promotions?
+    @promotional_rules != nil
   end
 
   def promotions_applied?

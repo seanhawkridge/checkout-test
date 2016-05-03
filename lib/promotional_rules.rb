@@ -4,6 +4,7 @@ require_relative 'promotions/lavender_hearts_multiple_offer.rb'
 class PromotionalRules
 
   def initialize *promotions
+    validate_promotions(promotions)
     @promotions = promotions
   end
 
@@ -16,10 +17,19 @@ class PromotionalRules
 
   def calculate_promotions items, subtotal, type
     @promotions.each do |promotion|
-      raise "#{promotion.class} is not a valid promotion" unless promotion.methods.include?(:apply_promotion)
       subtotal = promotion.apply_promotion items, subtotal if promotion.promotion_type == type
     end
     subtotal
+  end
+
+  def validate_promotions(promotions)
+    promotions.each do |promotion|
+      raise "#{promotion.class} is not a valid promotion" unless valid_promotion?(promotion)
+    end
+  end
+
+  def valid_promotion?(promotion)
+    promotion.methods.include?(:apply_promotion)
   end
 
 end

@@ -26,6 +26,14 @@ describe Checkout do
       expect(checkout.items).to eq []
     end
 
+    it "will initialize without a promotions object" do
+      expect{Checkout.new}.to_not raise_error
+    end
+
+    it "will overide the default with a promotions object" do
+      expect{Checkout.new(promotional_rules)}.to_not raise_error
+    end
+
   end
 
   describe '#scan' do
