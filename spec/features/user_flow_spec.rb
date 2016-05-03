@@ -3,12 +3,14 @@ require 'checkout'
 require 'subtotal'
 require 'price_formatter'
 require 'promotional_rules'
-require 'promotions/lavender_hearts_multiple_offer'
-require 'promotions/ten_percent_over_60'
+require 'promotions/percentage_promotion'
+require 'promotions/multiple_items_promotion'
 
 describe 'User flow' do
 
-  let(:promotional_rules) {PromotionalRules.new(LavenderHeartsMultiple.new, TenPercentOver60.new)}
+  let(:lavender_hearts_promotion) {MultipleItemsPromotion.new("001", 2, 0.75)}
+  let(:ten_percent_over_60) {PercentagePromotion.new(60, 10)}
+  let(:promotional_rules) {PromotionalRules.new(lavender_hearts_promotion, ten_percent_over_60)}
   let(:checkout) {Checkout.new(promotional_rules)}
   let(:subtotal) {Subtotal.new}
   let(:priceformatter) {PriceFormatter}

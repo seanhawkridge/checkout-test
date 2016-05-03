@@ -1,5 +1,5 @@
-require_relative 'promotions/ten_percent_over_60.rb'
-require_relative 'promotions/lavender_hearts_multiple_offer.rb'
+require_relative 'promotions/percentage_promotion.rb'
+require_relative 'promotions/multiple_items_promotion.rb'
 
 class PromotionalRules
 

@@ -3,15 +3,15 @@ require './lib/checkout.rb'
 require './lib/subtotal.rb'
 require './lib/price_formatter.rb'
 require './lib/promotional_rules.rb'
-require './lib/promotions/lavender_hearts_multiple_offer.rb'
-require './lib/promotions/ten_percent_over_60.rb'
+require './lib/promotions/multiple_items_promotion.rb'
+require './lib/promotions/percentage_promotion.rb'
 
 namespace :examples do
 
   task :all => [:example_one, :example_two, :example_three]
 
-  ten_percent_offer = TenPercentOver60.new
-  lavender_hearts_offer = LavenderHeartsMultiple.new
+  ten_percent_offer = PercentagePromotion.new(threshold = 60, percentage = 10)
+  lavender_hearts_offer = MultipleItemsPromotion.new("001", 2, 0.75)
   pr = PromotionalRules.new(lavender_hearts_offer, ten_percent_offer)
   lavender_heart = Item.new("001", "Lavender Heart", 9.25)
   cufflinks = Item.new("002", "Personalised Cufflinks", 45.00)
