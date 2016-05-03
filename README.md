@@ -13,8 +13,9 @@ I then test-drove two promotions objects - TenPercentOver60 and LavenderHeartsMu
 
 Next, I extracted a Subtotal object from Checkout to make updating the subtotal easier, and I extracted a PriceFormatter to separate out the pretty-formatting of the checkout total.
 
-Finally, I refactored to ensure that promotions are applied in the correct order (items discounts first, then total discounts), no matter what order they're passed in.
+I refactored to ensure that promotions are applied in the correct order (items discounts first, then total discounts), no matter what order they're passed in.
 
+I then refactored out the very specific promotions, and replaced them with two generic promotion objects - MultipleItemsPromotion and PercentagePromotion - which perform the same function but can be passed arguments to vary the amounts/items being promoted.
 
 ## Assumptions
 
@@ -46,9 +47,9 @@ require './lib/checkout.rb'
 
 require './lib/promotional_rules.rb'
 
-lavender_hearts_offer = LavenderHeartsMultiple.new
+lavender_hearts_offer = MultipleItemsPromotion.new(item_code = "001", threshold = 2, discount = 0.75)
 
-ten_percent_offer = TenPercentOver60.new
+ten_percent_offer = PercentagePromotion.new(threshold = 60, percentage = 10)
 
 promotional_rules = PromotionalRules.new(lavender_hearts_offer, ten_percent_offer)
 
@@ -75,7 +76,6 @@ co.total
 
 ## Ideas/To Do
 
-* I chose to create separate objects for each promotion, so that new promotions that make reductions in different ways could be processed. Having said this, if all promotions end up performing one of two tasks - either making a reduction to a particular item or making a reduction to the overall total, then these could be refactored into two template-style objects.
+* Create other types of promotion
 * Create a receipt object that presents a formatted list of items/prices/discounts
-* Some error-handling to make sure only promotion-type objects are passed in when instantiating the PromotionalRules class.
 * Refactor Checkout#items into a separate Basket object.
