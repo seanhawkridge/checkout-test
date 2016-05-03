@@ -26,9 +26,9 @@ class Checkout
   private
 
   def apply_promotions
-      updated_total = @promotional_rules.apply_promotions @items, @subtotal.balance
-      @subtotal.update updated_total
-      @promotions_applied = true
+    updated_total = @promotional_rules.apply_promotions @items, @subtotal.balance
+    @subtotal.update updated_total
+    @promotions_applied = true
   end
 
   def add_to_subtotal item
