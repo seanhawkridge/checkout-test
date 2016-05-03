@@ -3,7 +3,7 @@ class MultipleItemsPromotion
 
   attr_reader :promotion_type
 
-  def initialize(item_code = nil, threshold = 0, discount_per_item = 0)
+  def initialize item_code = nil, threshold = 0, discount_per_item = 0
     @item_code = item_code.to_sym
     @threshold = threshold
     @discount_per_item = discount_per_item

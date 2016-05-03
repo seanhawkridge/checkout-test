@@ -3,7 +3,7 @@ class PercentagePromotion
 
   attr_reader :promotion_type
 
-  def initialize(threshold = 0, percentage = 0)
+  def initialize threshold = 0, percentage = 0 
     @threshold = threshold
     @percentage = percentage
     @promotion_type = :percentage_discount
