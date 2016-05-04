@@ -1,7 +1,5 @@
 require './lib/item.rb'
 require './lib/checkout.rb'
-require './lib/subtotal.rb'
-require './lib/price_formatter.rb'
 require './lib/promotional_rules.rb'
 require './lib/promotions/multiple_items_promotion.rb'
 require './lib/promotions/percentage_promotion.rb'

@@ -1,7 +1,5 @@
 require 'item'
 require 'checkout'
-require 'subtotal'
-require 'price_formatter'
 require 'promotional_rules'
 require 'promotions/percentage_promotion'
 require 'promotions/multiple_items_promotion'
@@ -12,15 +10,9 @@ describe 'User flow' do
   let(:ten_percent_over_60) {PercentagePromotion.new(60, 10)}
   let(:promotional_rules) {PromotionalRules.new(lavender_hearts_promotion, ten_percent_over_60)}
   let(:checkout) {Checkout.new(promotional_rules)}
-  let(:subtotal) {Subtotal.new}
-  let(:priceformatter) {PriceFormatter}
   let(:item_one) {Item.new("001", "Lavender Heart", 9.25)}
   let(:item_two) {Item.new("002", "Personalised Cufflinks", 45.00)}
   let(:item_three) {Item.new("003", "Kids T-shirt", 19.95)}
-
-  before do
-    checkout.instance_variable_set(:@subtotal, subtotal)
-  end
 
   describe "scanning an item" do
 
@@ -47,17 +39,23 @@ describe 'User flow' do
 
   describe "calculating discounts" do
 
+    it 'correctly processes a basket with no discounts' do
+      checkout.scan(item_two)
+      expect(checkout.subtotal).to eq 45.00
+      expect(checkout.total).to eq "£45.00"
+    end
+
     it 'correctly applies a discount for a balance over 60' do
       checkout.scan(item_two)
       checkout.scan(item_two)
-      expect(subtotal.balance).to eq 90
+      expect(checkout.subtotal).to eq 90
       expect(checkout.total).to eq "£81.00"
     end
 
     it 'correctly applies a discount for multiple lavender hearts' do
       checkout.scan(item_one)
       checkout.scan(item_one)
-      expect(subtotal.balance).to eq 18.50
+      expect(checkout.subtotal).to eq 18.50
       expect(checkout.total).to eq "£17.00"
     end
 

@@ -1,4 +1,3 @@
-
 class MultipleItemsPromotion
 
   attr_reader :promotion_type
@@ -16,16 +15,18 @@ class MultipleItemsPromotion
 
   private
 
+  attr_reader :item_code, :threshold, :discount_per_item
+
   def calculate_promotion items, subtotal
     valid_items = count_valid_items items
-    if valid_items.length >= @threshold
-      valid_items.each { subtotal -= @discount_per_item }
+    if valid_items.length >= threshold
+      valid_items.each { subtotal -= discount_per_item }
     end
     subtotal
   end
 
   def count_valid_items items
-    items.select { |item| item.product_code == @item_code }
+    items.select { |item| item.product_code == item_code }
   end
 
 end

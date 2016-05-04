@@ -3,6 +3,8 @@ require_relative 'promotions/multiple_items_promotion.rb'
 
 class PromotionalRules
 
+  attr_reader :promotions
+
   def initialize *promotions
     validate_promotions(promotions)
     @promotions = promotions
@@ -16,7 +18,7 @@ class PromotionalRules
   private
 
   def calculate_promotions items, subtotal, type
-    @promotions.each do |promotion|
+    promotions.each do |promotion|
       subtotal = promotion.apply_promotion items, subtotal if promotion.promotion_type == type
     end
     subtotal

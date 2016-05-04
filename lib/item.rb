@@ -1,4 +1,3 @@
-
 class Item
 
   attr_reader :product_code, :name, :price

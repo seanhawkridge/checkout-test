@@ -2,22 +2,14 @@ require 'checkout'
 
 describe Checkout do
 
-  let(:subtotal_klass) {double :subtotal_klass}
   let(:promotional_rules) {double :promotional_rules}
-  let(:subtotal) {double :subtotal}
-  let(:priceformatter) {double :priceformatter}
-  let(:item_one) {double :item_one, product_code: 001, name: "Lavender Heart", price: "9.25"}
+  let(:item_one) {double :item_one, product_code: :"001", name: "Lavender Heart", price: 9.25}
 
   subject(:checkout) {described_class.new(promotional_rules)}
 
   before do
-    allow(subtotal).to receive(:add_to_balance)
-    allow(subtotal).to receive(:update)
-    allow(subtotal).to receive(:balance).and_return(9.25)
-    allow(priceformatter).to receive(:result).and_return("£9.25")
-    allow(promotional_rules).to receive(:apply_promotions)
+    allow(promotional_rules).to receive(:apply_promotions).and_return(9.25)
     allow(item_one).to receive(:is_a?).with(Item).and_return(true)
-    checkout.instance_variable_set(:@subtotal, subtotal)
   end
 
   describe '#initialize' do
@@ -39,8 +31,8 @@ describe Checkout do
   describe '#scan' do
 
     it 'sends #add_to_balance to the subtotal object' do
-      expect(subtotal).to receive(:add_to_balance)
       checkout.scan(item_one)
+      expect(checkout.subtotal).to eq 9.25
     end
 
     it 'adds the scanned item to the items array' do
@@ -74,6 +66,7 @@ describe Checkout do
     end
 
     it 'returns the formatted total' do
+      checkout.scan(item_one)
       expect(checkout.total).to eq "£9.25"
     end
 

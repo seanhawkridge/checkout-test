@@ -1,54 +1,61 @@
-require_relative 'subtotal.rb'
-require_relative 'price_formatter.rb'
-
 class Checkout
 
-  attr_reader :items
+  attr_reader :subtotal, :items
 
   def initialize promotional_rules = nil
-    @subtotal = Subtotal.new
-    @priceformatter = PriceFormatter
+    @subtotal = 0.0
     @promotional_rules = promotional_rules
+    @promotions_applied = false
     @items = []
   end
 
   def scan item
     raise "Not an item" unless item.is_a? Item
-    add_to_subtotal item
+    add_to_subtotal item.price
     add_to_items item
   end
 
   def total
-    apply_promotions if has_promotions? unless promotions_applied?
-    print_total
+    apply_promotions if has_promotions? && promotions_not_applied?
+    print_total subtotal
   end
 
   private
 
+  attr_reader :promotional_rules, :promotions_applied
+
   def apply_promotions
-    updated_total = @promotional_rules.apply_promotions @items, @subtotal.balance
-    @subtotal.update updated_total
+    amount = promotional_rules.apply_promotions items, subtotal
+    update_subtotal amount
     @promotions_applied = true
   end
 
-  def add_to_subtotal item
-    @subtotal.add_to_balance item.price
+  def add_to_subtotal amount
+    @subtotal += amount.to_f
+  end
+
+  def update_subtotal amount
+    @subtotal = amount
   end
 
   def add_to_items item
-    @items << item
+    items << item
   end
 
   def has_promotions?
-    @promotional_rules != nil
+    promotional_rules != nil
   end
 
-  def promotions_applied?
-    @promotions_applied == true
+  def promotions_not_applied?
+    promotions_applied == false
   end
 
-  def print_total
-    @priceformatter.format @subtotal.balance
+  def print_total amount
+    "£#{float_amount amount}"
+  end
+
+  def float_amount amount
+    "%.2f" % amount
   end
 
 end

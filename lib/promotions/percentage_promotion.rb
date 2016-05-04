@@ -1,9 +1,8 @@
-
 class PercentagePromotion
 
   attr_reader :promotion_type
 
-  def initialize threshold = 0, percentage = 0 
+  def initialize threshold = 0, percentage = 0
     @threshold = threshold
     @percentage = percentage
     @promotion_type = :percentage_discount
@@ -15,8 +14,10 @@ class PercentagePromotion
 
   private
 
+  attr_reader :threshold, :percentage
+
   def calculate_promotion items, subtotal
-    subtotal > @threshold ? subtotal *= percentage_multiplier(@percentage) : subtotal
+    subtotal > threshold ? subtotal *= percentage_multiplier(percentage) : subtotal
   end
 
   def percentage_multiplier(percentage)
