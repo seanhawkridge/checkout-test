@@ -16,7 +16,7 @@ class Checkout
   end
 
   def total
-    apply_promotions if has_promotions? && promotions_not_applied?
+    apply_promotions if has_promotions? && !promotions_applied
     print_total subtotal
   end
 
@@ -44,10 +44,6 @@ class Checkout
 
   def has_promotions?
     promotional_rules != nil
-  end
-
-  def promotions_not_applied?
-    promotions_applied == false
   end
 
   def print_total amount
