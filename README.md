@@ -17,6 +17,8 @@ I refactored to ensure that promotions are applied in the correct order (items d
 
 I then refactored out the very specific promotions, and replaced them with two generic promotion objects - MultipleItemsPromotion and PercentagePromotion - which perform the same function but can be passed arguments to vary the amounts/items being promoted.
 
+Finally, I moved the logic from Subtotal and PriceFormatter back in to the Checkout object, since they both seemed to contain too little logic to warrant their own objects.
+
 ## Assumptions
 
 * Items can be scanned in any order
